@@ -22,11 +22,18 @@ def addr_details():
     output_type = request.json['output_format']
 
     try:
+        # Available output_formats
         outputFormat = ['json', 'xml']
+
+        # Address type is not string
         if type(address) != str:
             return "Please enter valid address"
+
+        # Output format other than available formats
         elif output_type not in outputFormat:
             return "Please select output format 'json' or 'xml'"
+
+        # All checks are passed
         else:
             location = requests.get(
                 f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={GEOCODE_API_KEY}'
@@ -34,6 +41,7 @@ def addr_details():
 
         results = location.json()['results']
 
+        # Result is not empty or empty
         if results != []:
             location_coord = results[0]['geometry']['location']
 
