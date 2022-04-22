@@ -4,14 +4,14 @@ Fetches Latitude and Logitude of an address in 'json' or 'xml format using googl
 Input and Output without errors:
 
 <b>json response</b>
-[![Json-Response.png](https://i.postimg.cc/CLnBjd3B/Json-Response.png)](https://postimg.cc/rKcwTyFM)<br/>
+[![json-response.png](https://i.postimg.cc/kgBtT3n2/json-response.png)](https://postimg.cc/3kQRwq0h)<br/>
 
 <b>xml response</b>
-[![xml-Response.png](https://i.postimg.cc/KYGP8y08/xml-Response.png)](https://postimg.cc/0z4MVhgT)<br/>
+[![xmlresponse.png](https://i.postimg.cc/rp5sHq7w/xmlresponse.png)](https://postimg.cc/t1C9ZGXK)<br/>
 
-<b>No result found or random or non-existant address provided or address has special characters</b>
-[![noaddressorrandomaddress.png](https://i.postimg.cc/VLwd8WGY/noaddressorrandomaddress.png)](https://postimg.cc/SjZyLCb5)
-[![specialcharactersinaddress.png](https://i.postimg.cc/fytjQjB7/specialcharactersinaddress.png)](https://postimg.cc/2LYB4vp3)<br/>
+<b>No result found or random or non-existant address provided</b>
+[![zeroresultsandnonexistantaddress.png](https://i.postimg.cc/bYSyVybc/zeroresultsandnonexistantaddress.png)](https://postimg.cc/SjqbJpDD)<br/>
+
 
 <b>Address type is not string</b>
 [![addressnotstring.png](https://i.postimg.cc/rpyqnhwH/addressnotstring.png)](https://postimg.cc/DSDVmPsQ)<br/>

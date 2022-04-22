@@ -3,6 +3,7 @@ import requests
 from dicttoxml import dicttoxml
 import env
 import json
+import re
 
 app = Flask(__name__)
 
@@ -12,13 +13,20 @@ GEOCODE_API_KEY = env.GEOCODE_API_KEY
 # GET route: root route with a message, what api does. Doesn't require any input
 @app.get("/")
 def root_route():
-    return "Fetches Latitude and Logitude of an address in 'json' or 'xml format using googlemapsAPI"
+    return "Fetches Latitude and Logitude of an address and retuns response in 'json' or 'xml format using googlemapsAPI"
 
 
 # POST route: accepts json as an input and calls googlemaps api
 @app.post("/getAddressDetails")
 def addr_details():
     address = request.json['address']
+
+    '''
+    It is observed for '#' anywhere and '&' at the beginning of the 
+    address string returns invalid request.
+    Using 're' to remove these characters from address string
+    '''
+    new_address = re.sub("[#&]", "", address)
     output_type = request.json['output_format']
 
     try:
@@ -36,7 +44,7 @@ def addr_details():
         # All checks are passed
         else:
             location = requests.get(
-                f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={GEOCODE_API_KEY}'
+                f'https://maps.googleapis.com/maps/api/geocode/json?address={new_address}&key={GEOCODE_API_KEY}'
             )
 
         results = location.json()['results']
@@ -61,7 +69,7 @@ def addr_details():
 
         # In case of no results or address has special character in it.
         else:
-            return "No results found, please check if address is valid or check and remove any special characters in address"
+            return "No results found, please check if address is valid"
     except Exception as e:
         print(e)
         return "Internal server error"
