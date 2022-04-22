@@ -12,7 +12,7 @@ GEOCODE_API_KEY = env.GEOCODE_API_KEY
 # GET route: root route with a message, what api does. Doesn't require any input
 @app.get("/")
 def root_route():
-    return "Gets Latitude and Logitude of an address in 'json' or 'xml format"
+    return "Fetches Latitude and Logitude of an address in 'json' or 'xml format using googlemapsAPI"
 
 
 # POST route: accepts json as an input and calls googlemaps api
