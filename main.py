@@ -23,7 +23,7 @@ def addr_details():
 
     '''
     It is observed for '#' anywhere and '&' at the beginning of the 
-    address string returns invalid request.
+    address string returns invalid request response from api.
     Using 're' to remove these characters from address string
     '''
     new_address = re.sub("[#&]", "", address)
